@@ -1,0 +1,32 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Sun, 11 Oct 2026 15:04:46 +0000
+Subject: [PATCH] tests: Return a reference from MockRenderDelayBuffer's
+ default action
+
+The lambda's return type is deduced as DownsampledRenderBuffer, so the
+default action for GetDownsampledRenderBuffer(), which returns a const
+reference, would return a reference to a temporary copy. GoogleTest 1.17
+rejects this at compile time. Spell out the reference return type.
+---
+diff --git a/webrtc/modules/audio_processing/aec3/mock/mock_render_delay_buffer.cc b/webrtc/modules/audio_processing/aec3/mock/mock_render_delay_buffer.cc
+index f6ff7aa..dcd5b72 100644
+--- a/webrtc/modules/audio_processing/aec3/mock/mock_render_delay_buffer.cc
++++ b/webrtc/modules/audio_processing/aec3/mock/mock_render_delay_buffer.cc
+@@ -30,9 +30,10 @@ MockRenderDelayBuffer::MockRenderDelayBuffer(int sample_rate_hz,
+   ON_CALL(*this, GetRenderBuffer()).WillByDefault([this] {
+     return FakeGetRenderBuffer();
+   });
+-  ON_CALL(*this, GetDownsampledRenderBuffer()).WillByDefault([this] {
+-    return FakeGetDownsampledRenderBuffer();
+-  });
++  ON_CALL(*this, GetDownsampledRenderBuffer())
++      .WillByDefault([this]() -> const DownsampledRenderBuffer& {
++        return FakeGetDownsampledRenderBuffer();
++      });
+ }
+ 
+ MockRenderDelayBuffer::~MockRenderDelayBuffer() = default;
+-- 
+2.53.0
+

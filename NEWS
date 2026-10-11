@@ -1,3 +1,29 @@
+Release 3.1
+-----------
+
+Bump to code from WebRTC M155 version (Chromium 155.0.8059.39, WebRTC
+5bd86a2f17a35dfc986b87d058f511e45805bd1d, the head of branch-heads/8059).
+
+There are no API changes since 3.0. Changes include:
+
+  * AGC2: the experimental speech level estimator (behind the
+    WebRTC-Agc2SpeechLevelEstimatorExperimental field trial) detects
+    background speakers, and their speech is not used to adapt the gain
+  * Logging severity changes are now thread safe upstream
+  * AVX2 is used on CPUs without BMI2, except in MSVC builds
+  * The upstream unit tests for the APM and common_audio (about 4,400 tests)
+    can be built and run with `-Dtests=enabled`, and are run in CI on Linux,
+    macOS and Windows
+  * Prebuilt release packages for Ubuntu 22.04/24.04/26.04 (x86_64 and arm64),
+    Raspberry Pi OS, macOS, Windows (x64 and arm64), Android and iOS
+  * Builds with -ffp-contract=off like upstream, so that the SIMD code paths
+    match the generic ones with GCC
+  * The pkg-config file now finds the bundled abseil-cpp headers
+  * Portability fixes for Android, Windows on ARM and GCC 11/12
+  * Patches to upstream refreshed, and a fix added for a test helper that
+    did not build with GoogleTest 1.17
+
+
 Release 3.0
 -----------
 

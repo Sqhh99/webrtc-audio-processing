@@ -18,7 +18,7 @@ diff --git a/webrtc/rtc_base/cpu_info.cc b/webrtc/rtc_base/cpu_info.cc
  #include <unistd.h>
  #elif defined(WEBRTC_FUCHSIA)
  #include <zircon/syscalls.h>
-@@ -174,9 +173,10 @@
+@@ -178,9 +177,10 @@
    }
  #elif defined(WEBRTC_ARCH_ARM_FAMILY)
    if (instruction_set_architecture == ISA::kNeon) {

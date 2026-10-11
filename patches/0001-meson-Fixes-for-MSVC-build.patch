@@ -30,10 +30,10 @@ C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\shared\ws2def.h(496)
  1 file changed, 1 insertion(+)
 
 diff --git a/webrtc/rtc_base/logging.cc b/webrtc/rtc_base/logging.cc
-index 0be1b8f..a258704 100644
+index 00f49c9..d5de0a4 100644
 --- a/webrtc/rtc_base/logging.cc
 +++ b/webrtc/rtc_base/logging.cc
-@@ -38,6 +38,7 @@
+@@ -39,6 +39,7 @@
  #if RTC_LOG_ENABLED()
  
  #if defined(WEBRTC_WIN)
