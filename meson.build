@@ -1,5 +1,5 @@
 project('webrtc-audio-processing', 'c', 'cpp',
-  version : '3.0',
+  version : '3.1',
   meson_version : '>= 0.63',
   default_options : [ 'warning_level=1',
                       'buildtype=debugoptimized',
