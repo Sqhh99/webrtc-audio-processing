@@ -30,9 +30,10 @@ MockRenderDelayBuffer::MockRenderDelayBuffer(int sample_rate_hz,
   ON_CALL(*this, GetRenderBuffer()).WillByDefault([this] {
     return FakeGetRenderBuffer();
   });
-  ON_CALL(*this, GetDownsampledRenderBuffer()).WillByDefault([this] {
-    return FakeGetDownsampledRenderBuffer();
-  });
+  ON_CALL(*this, GetDownsampledRenderBuffer())
+      .WillByDefault([this]() -> const DownsampledRenderBuffer& {
+        return FakeGetDownsampledRenderBuffer();
+      });
 }
 
 MockRenderDelayBuffer::~MockRenderDelayBuffer() = default;
