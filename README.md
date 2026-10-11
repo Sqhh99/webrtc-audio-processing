@@ -21,9 +21,9 @@ This repository is based on the
 project, which PulseAudio and PipeWire use. It keeps the same layout and build
 system, and adds:
 
-* newer upstream code: currently WebRTC M153 (WebRTC
-  [`9ea5afcad0`](https://webrtc.googlesource.com/src/+/9ea5afcad008b940468c2a15aec339592cf5a935),
-  as used by Chromium 153.0.8010.55)
+* newer upstream code: currently WebRTC M155 (WebRTC
+  [`5bd86a2f17`](https://webrtc.googlesource.com/src/+/5bd86a2f17a35dfc986b87d058f511e45805bd1d),
+  as used by Chromium 155.0.8059.39)
 * the upstream unit tests, run in CI on Linux, macOS and Windows
 * prebuilt release packages for more platforms
 
@@ -69,8 +69,8 @@ package also contains the licenses of the code it includes.
 
 Releases are tagged after the upstream version they are built from, as
 `m<milestone>.<branch>.<branch position>.<build>`. For example,
-`m153.8010.0.1` is the second release built from the start of the WebRTC M153
-branch (`branch-heads/8010`).
+`m155.8059.4.0` is the first release built from the WebRTC M155 branch
+(`branch-heads/8059`), 4 commits after the branch point.
 
 ## Using the library
 
@@ -176,7 +176,7 @@ The packages are written to `dist/`.
 ## Running the tests
 
 The upstream WebRTC unit tests for the audio processing module (and the
-`common_audio` code it uses) are included, about 4,300 tests in all. They need
+`common_audio` code it uses) are included, about 4,400 tests in all. They need
 [GoogleTest](https://github.com/google/googletest), which is taken from the
 system or downloaded as a subproject.
 
